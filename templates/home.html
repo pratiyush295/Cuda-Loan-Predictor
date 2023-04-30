@@ -1,0 +1,163 @@
+{% extends 'base.html' %}
+{% block title %}
+Calculator
+{% endblock title %}
+
+
+{% block body %}
+<link rel="stylesheet" href="/static/home_css.css">
+</head>
+
+<body class="mb-8">
+
+
+  <div class="form-body ">
+    <div class="row">
+      <div class="form-holder">
+        <div class="form-content">
+          <div class="form-items">
+            <h3>Cuda Calculator</h3>
+            <p>Fill in client credentials</p>
+            {% if empty %}
+                <div class="my-3  text-center" ><h6 style="color: #ff440f;">{{empty}}</h6></div>
+            {% endif %}
+            {% if message %}
+                <div class="my-6  text-center" ><h3 style="color: #ff440f;">{{message}}</h3></div>
+            {% endif %}
+            <form class="requires-validation" action="/predict" method="POST" novalidate>
+
+              <!-- ////////////////////////////////////////////////////////////////////////////////////////// -->
+              <div class="col-md-12">
+                <select class="form-select mt-3" required name="gender">
+                  <option selected disabled value="">Gender</option>
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
+                </select>
+              </div>
+              <!-- ////////////////////////////////////////////////////////////////////////////////////////// -->
+
+              <div class="col-md-12">
+                <select class="form-select mt-3" required name="married">
+                  <option selected disabled value="">Married</option>
+                  <option value="yes">Yes</option>
+                  <option value="no">No</option>
+                </select>
+              </div>
+
+              <!-- ////////////////////////////////////////////////////////////////////////////////////////// -->
+
+              <div class="col-md-12 mt-3">
+                <input class="form-control" type="number" name="dependent" placeholder="Count Of Dependent" required>
+              </div>
+
+              <!-- ////////////////////////////////////////////////////////////////////////////////////////// -->
+
+              <div class="col-md-12">
+                <select class="form-select mt-3" required name="education">
+                  <option selected disabled value="">Education</option>
+                  <option value="graduate">Graduate</option>
+                  <option value="not_graduate">Not Graduate</option>
+                </select>
+              </div>
+
+              <!-- ////////////////////////////////////////////////////////////////////////////////////////// -->
+
+              <div class="col-md-12">
+                <select class="form-select mt-3" required name="self_employed">
+                  <option selected disabled value="">Self Employeed</option>
+                  <option value="yes">Yes</option>
+                  <option value="no">No</option>
+                </select>
+              </div>
+
+
+              <!-- ////////////////////////////////////////////////////////////////////////////////////////// -->
+
+
+
+
+
+              <!-- ////////////////////////////////////////////////////////////////////////////////////////// -->
+
+              <div class="col-md-12 mt-3">
+                <input class="form-control" type="number" name="applicant_income" placeholder="Applicant Income"
+                  required>
+              </div>
+
+
+
+              <!-- ////////////////////////////////////////////////////////////////////////////////////////// -->
+
+
+              <div class="col-md-12 mt-3">
+                <input class="form-control" type="number" name="coapplicant_income" placeholder="Co-Applicant Income"
+                  required>
+              </div>
+
+
+              <!-- ////////////////////////////////////////////////////////////////////////////////////////// -->
+
+              <div class="col-md-12 mt-3">
+                <input class="form-control" type="number" name="loan_amount" placeholder="Loan Amount" required>
+              </div>
+              
+              
+              <!-- ////////////////////////////////////////////////////////////////////////////////////////// -->
+              
+              <div class="col-md-12 mt-3">
+                <input class="form-control" type="number" name="loan_term" placeholder="Loan Amount Term in Months" required>
+              </div>
+
+
+              <!-- ////////////////////////////////////////////////////////////////////////////////////////// -->
+
+              <!-- <div class="col-md-12 mt-3">
+                <input class="form-control" type="number" name="credit_history" placeholder="Credit History" required>
+              </div> -->
+
+              <div class="col-md-12">
+                <select class="form-select mt-3" required name="credit_history">
+                  <option selected disabled value="">Credit History</option>
+                  <option value="good">Good</option>
+                  <option value="bad">Bad</option>
+                  
+                </select>
+              </div>
+
+
+              <!-- ////////////////////////////////////////////////////////////////////////////////////////// -->
+
+
+              <!-- <div class="col-md-12 mt-3">
+                <input class="form-control" type="number" name="property_area" placeholder="Property Area" required>
+              </div> -->
+              <div class="col-md-12">
+                <select class="form-select mt-3" required name="property_area">
+                  <option selected disabled value="">Property Area</option>
+                  <option value="rural">Rural</option>
+                  <option value="urban">Urban</option>
+                  <option value="semiurban">SemiUrban</option>
+                </select>
+              </div>
+
+
+              <!-- ////////////////////////////////////////////////////////////////////////////////////////// -->
+              
+
+
+              <div class="form-button mt-20">
+                <button id="submit" type="submit" class="btn btn-danger">Predict Loan</button>
+              </div>
+            </form>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+  {% endblock body %}
